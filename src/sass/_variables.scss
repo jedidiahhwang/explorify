@@ -1,0 +1,114 @@
+$textColor: black;
+$spotifyColor: #1DB953;
+$buttonHeight: 3vh;
+$buttonWidth: 10vw;
+
+@import url('https://css.gg/log-in.css');
+
+@mixin layout {
+    flex-direction: column;
+    position: relative;
+    width: 60vw;
+    height: 70vh;
+    border: 5px solid #000000;
+    background-color: #9CF0E1;
+}
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin buttonLayout {
+    width: $buttonWidth;
+        height: $buttonHeight;
+        text-align: center;
+        background-size: 220%;
+        box-shadow: 0 .2em .3em rgba(0, 0, 0, 0.15);
+        color: #000000;
+        background-color: transparent;
+        background-position: 100%;
+        border: 3px solid #000000;
+        text-transform: uppercase;
+        margin: 10px;
+        border-radius: 3px;
+        transition: all .2s ease-out;
+        font-weight: 900;
+        cursor: pointer;
+        letter-spacing: 2px;
+        background-image: linear-gradient(110deg, #CB1482 0%, #F2BA58 50%, transparent 50%, transparent 100%);
+        font-size: 14px;
+        &:hover {
+            box-shadow: 0 0 .3em rgba(0, 0, 0, 0.25);
+            background-position: 0;
+            color: #fff;
+        }
+}
+
+@mixin arrow {
+    .arrow-link {
+        display: flex;
+        color: salmon;
+        background-color: transparent;
+        text-transform: uppercase;
+        transition: all .3s ease;
+        font-weight: bold;
+        cursor: pointer;
+        align-items: center;
+        letter-spacing: 1px;
+        font-size: 14px;
+    }
+    
+    .arrow-link > .arrow {
+        width: 8px;
+        height: 8px;
+        border-right: 2px solid salmon;
+        border-bottom: 2px solid salmon;
+        position: relative;
+        transform: rotate(-45deg);
+        margin-left: 3px;
+        transition: all .3s ease;
+    }
+    
+    .arrow-link > .arrow::before {
+        display: block;
+        background-color: #D95E39;
+        width: 3px;
+        transform-origin: bottom right;
+        height: 2px;
+        position: absolute;
+        opacity: 0;
+        bottom: calc(-2px / 2);
+        transform: rotate(45deg);
+        transition: all .3s ease;
+        content: "";
+        right: 0;
+    }
+    
+    .arrow-link:hover > .arrow {
+        transform: rotate(-45deg) translate(4px, 4px);
+        border-color: #D95E39;
+    }
+    
+    .arrow-link:hover > .arrow::before {
+        opacity: 1;
+        width: 8px;
+    }
+    
+    .arrow-link:hover {
+        color: #D95E39;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 50px, 0);
+    }
+    to{
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}
+
+

@@ -1,0 +1,61 @@
+.about {
+    @include layout();
+    
+    .about-headers {
+        width: 50vw;
+        margin: 15px;
+    }
+
+    .text-block {
+        width: 50vw;
+    }
+
+    .button-holder {
+        @include flexCenter();
+        width: 60vw;
+        position: relative;
+        bottom: -50px;
+    }
+
+    .about-button {
+        width: $buttonWidth;
+        height: $buttonHeight;
+        text-align: center;
+        background-size: 220%;
+        box-shadow: 0 .2em .3em rgba(0, 0, 0, 0.15);
+        color: #000000;
+        background-color: transparent;
+        background-position: 100%;
+        border: 3px solid #000000;
+        text-transform: uppercase;
+        margin: 10px;
+        border-radius: 3px;
+        transition: all .2s ease-out;
+        font-weight: 900;
+        cursor: pointer;
+        letter-spacing: 2px;
+        background-image: linear-gradient(110deg, #CB1482 0%, #F2BA58 50%, transparent 50%, transparent 100%);
+        font-size: 14px;
+        &:hover {
+            box-shadow: 0 0 .3em rgba(0, 0, 0, 0.25);
+            background-position: 0;
+            color: #fff;
+        }
+    }
+}
+
+.icon-tabler {
+    width: 50%;
+    height: 50%;
+    display: none;
+}
+
+@media (max-width: 1000px) {
+    .about-button, .arrow-link {
+        display: none;
+    }
+
+    .icon-tabler {
+        display: block;
+    }
+}

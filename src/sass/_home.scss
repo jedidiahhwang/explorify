@@ -1,0 +1,110 @@
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home {
+    @include flexCenter();
+
+    flex-direction: column;
+    position: relative;
+    width: 60vw;
+    height: 70vh;
+    border: 5px solid #000000;
+    background-color: #9CF0E1;
+    
+    .welcome-text {
+        text-align: center;
+        width: 50vw;
+        margin-bottom: 15px;
+
+        #explorify-main {
+            color: $textColor;
+            font-size: 100px;
+        }
+        #explorify-sub {
+            font-size: 25px;
+            color: $textColor;
+        }
+    }
+
+    .button-holder {
+        @include flexCenter();
+        width: 50vw;
+    }
+
+    .home-button {
+        @include buttonLayout();
+    }
+}
+
+    .icon-tabler {
+        width: 50%;
+        height: 50%;
+        display: none;
+    }
+
+    .arrow-link {
+        display: flex;
+        color: salmon;
+        background-color: transparent;
+        text-transform: uppercase;
+        transition: all .3s ease;
+        font-weight: bold;
+        cursor: pointer;
+        align-items: center;
+        letter-spacing: 1px;
+        font-size: 14px;
+    }
+    
+    .arrow-link > .arrow {
+        width: 8px;
+        height: 8px;
+        border-right: 2px solid salmon;
+        border-bottom: 2px solid salmon;
+        position: relative;
+        transform: rotate(-45deg);
+        margin-left: 3px;
+        transition: all .3s ease;
+    }
+    
+    .arrow-link > .arrow::before {
+        display: block;
+        background-color: #D95E39;
+        width: 3px;
+        transform-origin: bottom right;
+        height: 2px;
+        position: absolute;
+        opacity: 0;
+        bottom: calc(-2px / 2);
+        transform: rotate(45deg);
+        transition: all .3s ease;
+        content: "";
+        right: 0;
+    }
+    
+    .arrow-link:hover > .arrow {
+        transform: rotate(-45deg) translate(4px, 4px);
+        border-color: #D95E39;
+    }
+    
+    .arrow-link:hover > .arrow::before {
+        opacity: 1;
+        width: 8px;
+    }
+    
+    .arrow-link:hover {
+        color: #D95E39;
+    }
+ 
+
+    @media (max-width: 1000px) {
+        .home-button, .arrow-link {
+            display: none;
+        }
+
+        .icon-tabler {
+            display: block;
+        }
+    }
