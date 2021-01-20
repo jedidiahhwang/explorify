@@ -8,6 +8,8 @@ const genreCtrl = require("./controllers/genreController");
 const artistCtrl = require("./controllers/artistController");
 const { request } = require("request");
 
+const path = require("path");
+
 const app = express();
 
 const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env;
@@ -25,6 +27,12 @@ app.use(
         }
     })
 );
+
+app.use(express.static(__dirname + "/../build"))
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname + "../build/index.html"))
+})
 
 // Auth endpoints
 app.post("/auth/register", authCtrl.register);
