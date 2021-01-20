@@ -51,6 +51,7 @@ const Genres = (props) => {
             .then(() => {
                 props.logout()
                 props.history.push("/");
+                console.log("hello");
             });
     })
 
