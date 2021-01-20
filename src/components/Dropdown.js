@@ -33,7 +33,6 @@ const Dropdown = ((props) => {
                     </option>
                 )}
             </select>
-            <p>{selectedValue}</p>
             <button 
                 className="genre-button"
                 onClick={addGenre}

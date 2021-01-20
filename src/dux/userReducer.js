@@ -20,7 +20,6 @@ const initialState = {
 // Set action constants
 const LOGIN_USER = "LOGIN_USER";
 const LOGOUT = "LOGOUT";
-const ACCESS_TOKEN = "ACCESS_TOKEN";
 
 // Set the necessary action creators
 export function loginUser(username) {
@@ -36,13 +35,6 @@ export function logout() {
     }
 }
 
-// export function setAccessToken(accessToken) {
-//     return {
-//         type: ACCESS_TOKEN,
-//         payload: accessToken
-//     }
-// }
-
 // Finally, export the functions in one reducer
 export default function reducer(state = initialState, action) {
     switch(action.type) {
@@ -51,9 +43,6 @@ export default function reducer(state = initialState, action) {
             return {username, isLoggedIn: true}
         case LOGOUT:
             return initialState
-        // case ACCESS_TOKEN:
-        //     const {accessToken} = action.payload
-        //     return {accessToken}
         default:
             return state
     }

@@ -4,20 +4,6 @@ CREATE TABLE explorify_users (
     hash text
 );
 
-CREATE TABLE explorify_genres (
-    id SERIAL PRIMARY KEY,
-    genre TEXT
-);
-
-INSERT INTO explorify_genres (genre)
-VALUES
-  ('rock'),
-  ('hip hop'),
-  ('jazz'),
-  ('pop'),
-  ('dance'),
-  ('country');
-
 CREATE TABLE explorify_user_genres (
     id SERIAL PRIMARY KEY,
     genreID INTEGER REFERENCES explorify_users(id),

@@ -50,7 +50,7 @@ const Genres = (props) => {
             .get("/auth/logout")
             .then(() => {
                 props.logout()
-                props.history.push("/login");
+                props.history.push("/");
             });
     })
 

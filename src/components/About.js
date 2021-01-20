@@ -21,8 +21,8 @@ const About = (props) => {
                     <p className="text-block">
                         Explorify uses a combination of JavaScript, SASS, Node (npm), and PostgreSQL as well
                         as Spotify's public API to access data related to artists
-                        and genres. Users will create an account that will save information
-                        such as ratings and comments of artists that can be revisited at a later time.
+                        and genres. Users will create an account and select genres to explore. Spotify
+                        will then supply the information required to explore selected genres.
                     </p>
                 <br/>
             <br/>

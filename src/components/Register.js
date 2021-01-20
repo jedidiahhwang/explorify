@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
+import {connect} from "react-redux";
+import {loginUser} from "../dux/userReducer";
+import {setAccessToken} from "../dux/tokenReducer";
 
 const Register = (props) => {
 
@@ -11,8 +14,25 @@ const Register = (props) => {
     const register = ((e) => {
         e.preventDefault();
 
-        axios.post("/auth/register", {username, email, password});
-        axios.post("/auth/sendEmail", {username, email, password});
+        axios
+            .post("/auth/register", {username, email, password})
+            .then((res) => {
+                axios
+                    .post("/auth/token")
+                    .then((res) => {
+                        if(res.data) {
+                            props.setAccessToken(res.data);
+                        }
+                    })
+
+                axios
+                    .post("/auth/login", {username, password})
+                    .then((res) => {
+                        props.loginUser(res.data)
+                        props.history.push("/genres")
+                    })
+            })
+        axios.post("/auth/email", {username, email, password});
     })
 
     return (
@@ -35,6 +55,7 @@ const Register = (props) => {
                 <input
                     className="input password"
                     placeholder="password"
+                    type="password"
                     onChange={(e) => setPassword(e.target.value)}
                 />
             </form>
@@ -47,4 +68,9 @@ const Register = (props) => {
         </div>
     )
 }
-export default Register
+
+function mapStateToProps(reduxState) {
+    return {...reduxState.user, ...reduxState.token};
+}
+
+export default connect(mapStateToProps, {setAccessToken, loginUser})(Register)
