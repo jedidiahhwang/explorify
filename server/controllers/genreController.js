@@ -1,7 +1,6 @@
 module.exports = {
     getGenres: async (req, res) => {
-        // const token = req.body;
-
+        // This endpoint might not be used, as this call can be done on the front end
         axios({
             url: "https://api.spotify.com/v1/browse/categories?locale=sv_US", 
             headers: {
@@ -17,7 +16,6 @@ module.exports = {
         const db = req.app.get("db");
 
         // Key has to be the same name for destructuring
-        // Same as const addedGenre = req.body.selectedValue
         const {selectedValue} = req.body;
         const userGenre = await db.add_genre([selectedValue]);
 

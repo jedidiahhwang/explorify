@@ -5,7 +5,6 @@ import {connect} from "react-redux";
 import {logout} from "../dux/userReducer";
 
 const Artists = (props) => {
-
     const genre = props.genre[0].addedgenre;
     
     const [retrievedArtists, setRetrievedArtists] = useState([]);
@@ -71,7 +70,7 @@ const Artists = (props) => {
             });
     })
 
-
+    // Convoluted, but it works (sets the value of which artist is accessed)
     const turnOn0 = (e) => {
         e.stopPropagation();
         setOverlayDisplay(true);

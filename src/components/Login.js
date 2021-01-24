@@ -7,7 +7,6 @@ import {loginUser} from "../dux/userReducer";
 import {setAccessToken} from "../dux/tokenReducer";
 
 const Login = (props) => {
-
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -29,7 +28,7 @@ const Login = (props) => {
                 props.loginUser(res.data)
                 props.history.push("/genres")
             })
-        })
+    })
 
     return (
         <div className="login">

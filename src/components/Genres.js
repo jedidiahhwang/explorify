@@ -28,7 +28,7 @@ const Genres = (props) => {
                 setToken(result);
             })
             
-        }
+    }
         
         useEffect(() => {
             let isMounted = true;

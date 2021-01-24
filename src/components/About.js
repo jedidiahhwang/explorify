@@ -1,10 +1,8 @@
-import React, {useEffect, useState} from "react";
-import axios from "axios";
+import React from "react";
 import {Link} from "react-router-dom";
 
 const About = (props) => {
     
-
     return (
         <div className="about">
             <h1 className="about-headers">What is Explorify?</h1>

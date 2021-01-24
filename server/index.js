@@ -6,7 +6,6 @@ const massive = require("massive");
 const authCtrl = require("./controllers/authController");
 const genreCtrl = require("./controllers/genreController");
 const artistCtrl = require("./controllers/artistController");
-const { request } = require("request");
 
 const path = require("path");
 
@@ -30,6 +29,7 @@ app.use(
 
 app.use(express.static(`${__dirname}/../build`))
 
+// Hosting endpoint
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../build/index.html'))
   })

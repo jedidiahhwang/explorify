@@ -77,9 +77,9 @@ module.exports = {
         res.sendStatus(200);
     },
     sendEmail: (req, res) => {
-
         const {username, email, password} = req.body;
 
+        // Not a stickler for access to this account, but will adjust later
         let transporter = nodemailer.createTransport({
             service: "gmail",
             auth: {

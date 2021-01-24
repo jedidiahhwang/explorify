@@ -2,7 +2,6 @@ const {default: axios} = require("axios");
 
 module.exports = {
     getArtist: async (req, res) => {
-
         const {accessToken, genre} = req.body;
 
         await axios({
@@ -14,11 +13,9 @@ module.exports = {
         })
             .then(artists => {
                 res.status(200).send(artists.data);
-            })
-            
+            })   
     },
     getRelatedArtists: async (req, res) => {
-
         const {accessToken, id} = req.body;
 
         await axios({
@@ -32,10 +29,4 @@ module.exports = {
                 res.status(200).send(artists.data);
             })
     },
-    changeRating: (req, res) => {
-
-    },
-    changeComment: (req, res) => {
-
-    }
 }

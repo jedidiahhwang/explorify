@@ -1,9 +1,5 @@
-import React, {useEffect, useState} from "react";
-import axios from "axios";
+import React from "react";
 import routes from "../routes";
-import {withRouter} from "react-router-dom";
-
-import Home from "./Home.js";
 
 const Container = (props) => {
     
